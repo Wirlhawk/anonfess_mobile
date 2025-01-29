@@ -1,3 +1,4 @@
+import 'package:anonfess_mobile/services/auth_service.dart';
 import 'package:anonfess_mobile/style/style.dart';
 import 'package:anonfess_mobile/views/components/neu_button.dart';
 import 'package:anonfess_mobile/views/components/neu_card.dart';
@@ -6,10 +7,32 @@ import 'package:anonfess_mobile/views/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({
-    super.key,
-  });
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _authService = AuthService();
+
+  final _emailController = TextEditingController();
+  final _pwController = TextEditingController();
+
+  void login() async {
+    final email = _emailController.text;
+    final password = _pwController.text;
+
+    try {
+      await _authService.signInWithEmailPassword(email, password);
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Error: $e ")));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +71,22 @@ class LoginPage extends StatelessWidget {
         TextInput(
           label: "Email",
           placeholder: "email@gmail.com",
+          controller: _emailController,
         ),
 
         // Password Input
         TextInput(
           label: "Password",
           placeholder: "******",
+          obscureText: true,
+          controller: _pwController,
         ),
 
         // Login Button
-        NeuButton(label: "Login"),
+        NeuButton(
+          label: "Login",
+          onTap: login,
+        ),
 
         const SizedBox(
           height: 10,

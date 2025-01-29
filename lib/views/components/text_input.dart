@@ -11,7 +11,7 @@ class TextInput extends StatelessWidget {
   const TextInput({
     super.key,
     this.obscureText = false,
-    this.controller,
+    required this.controller,
     required this.label,
     required this.placeholder,
   });
@@ -22,7 +22,7 @@ class TextInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Label",
+          label,
           style: GoogleFonts.lexend(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -30,8 +30,8 @@ class TextInput extends StatelessWidget {
         ),
         SizedBox(height: 5),
         TextField(
-          //   obscureText: obscureText,
-          //   controller: controller,
+          obscureText: obscureText,
+          controller: controller,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 20),
             enabledBorder: Style.outlineInputBorder,

@@ -1,8 +1,14 @@
-import 'package:anonfess_mobile/views/pages/login_page.dart';
+import 'package:anonfess_mobile/auth_gate.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  await Supabase.initialize(
+    url: 'https://eaueukjrstcklcczwufi.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhdWV1a2pyc3Rja2xjY3p3dWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjY3NDM3OTksImV4cCI6MjA0MjMxOTc5OX0.HqUY6QZzvdX2n1v4nahNyw8X_MxKnPdUUyFNzpnYqqY',
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: LoginPage(),
+      home: AuthGate(),
     );
   }
 }
