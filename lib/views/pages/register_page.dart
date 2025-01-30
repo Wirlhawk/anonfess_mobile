@@ -9,9 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({
-    super.key,
-  });
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -25,7 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final _pwController = TextEditingController();
 
   void register(BuildContext context) async {
-    // ignore: unused_local_variable
     final username = _usernameController.text;
     final email = _emailController.text;
     final password = _pwController.text;
@@ -55,10 +52,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Style.primary,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: NeuCard(
-            child: _buildRegisterForm(context),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: NeuCard(
+              child: _buildRegisterForm(context),
+            ),
           ),
         ),
       ),
@@ -66,77 +65,74 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _buildRegisterForm(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        // mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        spacing: 10,
-        children: [
-          // Header title
-          Text(
-            "Register",
-            style: GoogleFonts.lexend(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      // mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      spacing: 15,
+      children: [
+        // Header title
+        Text(
+          "Register",
+          style: GoogleFonts.lexend(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
+        ),
 
-          SizedBox(height: 10),
 
-          // Username
-          TextInput(
-            label: "Username",
-            placeholder: "Username",
-            controller: _usernameController,
-          ),
+        // Username
+        TextInput(
+          label: "Username",
+          placeholder: "Username",
+          controller: _usernameController,
+        ),
 
-          // Enail input
-          TextInput(
-            label: "Email",
-            placeholder: "email@gmail.com",
-            controller: _emailController,
-          ),
+        // Enail input
+        TextInput(
+          label: "Email",
+          placeholder: "email@gmail.com",
+          controller: _emailController,
+        ),
 
-          // Password Input
-          TextInput(
-            label: "Password",
-            placeholder: "******",
-            obscureText: true,
-            controller: _pwController,
-          ),
+        // Password Input
+        TextInput(
+          label: "Password",
+          placeholder: "******",
+          obscureText: true,
+          controller: _pwController,
+        ),
 
-          // Register Button
-          NeuButton(
-            label: "Register",
-            onTap: () => register(context),
-          ),
+        // Register Button
+        NeuButton(
+          label: "Register",
+          onTap: () => register(context),
+        ),
 
-          const SizedBox(
-            height: 10,
-          ),
+        const SizedBox(
+          height: 10,
+        ),
 
-          // Register link
-          Center(
-            child: GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
-              ),
-              child: Text(
-                "Login",
-                style: GoogleFonts.lexend(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Style.secondary,
-                ),
+        // Register link
+        Center(
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginPage(),
               ),
             ),
-          )
-        ],
-      ),
+            child: Text(
+              "Login",
+              style: GoogleFonts.lexend(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Style.secondary,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

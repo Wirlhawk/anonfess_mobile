@@ -39,10 +39,12 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Style.primary,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: NeuCard(
-            child: _buildLoginForm(context),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: NeuCard(
+              child: _buildLoginForm(context),
+            ),
           ),
         ),
       ),
@@ -54,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       // mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
-      spacing: 10,
+      spacing: 15,
       children: [
         // Header title
         Text(
@@ -64,8 +66,6 @@ class _LoginPageState extends State<LoginPage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-
-        SizedBox(height: 10),
 
         // Enail input
         TextInput(

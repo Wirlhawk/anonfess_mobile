@@ -1,0 +1,1 @@
+ /media/wirllll/ubuntu2/anonfess_mobile/.dart_tool/flutter_build/2f06e715b3c567f634a304bf3dd31b52/native_assets.yaml: 
