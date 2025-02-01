@@ -72,14 +72,31 @@ class _RegisterPageState extends State<RegisterPage> {
       spacing: 15,
       children: [
         // Header title
-        Text(
-          "Register",
-          style: GoogleFonts.lexend(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 2,
+          children: [
+            Text(
+              "Register",
+              style: GoogleFonts.lexend(
+                fontSize: 32,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            Text(
+              "Registrasi akun AnonFess anda",
+              style: GoogleFonts.lexend(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Style.muted,
+              ),
+            ),
+          ],
         ),
 
+        SizedBox(
+          height: 5,
+        ),
 
         // Username
         TextInput(

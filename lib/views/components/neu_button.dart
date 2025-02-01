@@ -7,12 +7,14 @@ class NeuButton extends StatelessWidget {
   final Function()? onTap;
   final double? padding;
   final Color? color;
+  final Alignment? alignment;
   const NeuButton({
     super.key,
     required this.label,
     this.onTap,
     this.padding = 8.0,
     this.color = Style.secondary,
+    this.alignment = Alignment.center,
   });
 
   @override
@@ -23,10 +25,17 @@ class NeuButton extends StatelessWidget {
         padding: EdgeInsets.all(padding!),
         width: double.infinity,
         decoration: BoxDecoration(
-            color: color,
-            border: Border.all(width: 4),
-            borderRadius: BorderRadius.circular(15)),
-        alignment: Alignment.center,
+          color: color,
+          border: Border.all(width: 4),
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              offset: Offset(2.5, 2.5),
+            ),
+          ],
+        ),
+        alignment: alignment,
         child: Text(
           label,
           style: GoogleFonts.lexend(

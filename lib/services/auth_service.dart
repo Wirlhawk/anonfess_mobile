@@ -38,16 +38,14 @@ class AuthService {
     await _supabase
         .from('profiles')
         .upsert({'id': userID, 'username': username});
-
   }
 
   Future<void> signOut() async {
     await _supabase.auth.signOut();
   }
 
-  String? getCurrentUser() {
+  getCurrentUser() {
     final session = _supabase.auth.currentSession;
-    final user = session?.user;
-    return user?.email;
+    return session?.user;
   }
 }

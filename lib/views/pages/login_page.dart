@@ -59,12 +59,30 @@ class _LoginPageState extends State<LoginPage> {
       spacing: 15,
       children: [
         // Header title
-        Text(
-          "Login",
-          style: GoogleFonts.lexend(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 2,
+          children: [
+            Text(
+              "Login",
+              style: GoogleFonts.lexend(
+                fontSize: 32,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            Text(
+              "Masuk ke akun AnonFess anda",
+              style: GoogleFonts.lexend(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Style.muted,
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(
+          height: 5,
         ),
 
         // Enail input

@@ -7,7 +7,14 @@ class MessageService {
   Future<List<dynamic>> getAllMessage() async {
     final userID = _supabase.auth.currentSession?.user.id;
     debugPrint(userID);
-    return await _supabase.from("messages").select('id').eq("user_id", userID!);
+    return await _supabase
+        .from("messages")
+        .select('id, isOpen')
+        .eq("user_id", userID!)
+        .order(
+          'created_at',
+          ascending: false,
+        );
   }
 
   Future getMessage(id) async {

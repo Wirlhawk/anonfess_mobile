@@ -1,4 +1,4 @@
-#Thu Jan 30 10:41:48 WIB 2025
+#Sat Feb 01 13:58:57 WIB 2025
 base.0=/media/wirllll/ubuntu2/anonfess_mobile/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/media/wirllll/ubuntu2/anonfess_mobile/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
 base.2=/media/wirllll/ubuntu2/anonfess_mobile/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
